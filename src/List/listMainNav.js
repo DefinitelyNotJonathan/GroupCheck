@@ -9,6 +9,7 @@ export default class ListMainNav extends React.Component {
                 <h2>list name here</h2>
                 <Link to="/add-item">Add an item</Link>
                 </nav>
+                <Link to="/home">Back</Link>
             </div>
         )
     }
