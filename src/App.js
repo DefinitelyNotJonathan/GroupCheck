@@ -19,6 +19,7 @@ class App extends Component {
     items: [],
     lists: []
   }
+  //I can load this up with a dummy store
     componentDidMount() {
 
       this.setState(STORE);
@@ -46,11 +47,15 @@ class App extends Component {
             deleteItem: this.handleDeleteItem,
             addItem: (item) => {
                 this.state.items.push(item);
+                this.setState(this.state);
             },
             addList: (list) => {
-                this.Store.lists.push(list);
-            }
+              this.state.lists.push(list);
+              this.setState(this.state);
+          }
         };
+
+        console.log(this.state.items)
         return (
             <ApiContext.Provider value={value}>
                 <div className="App">

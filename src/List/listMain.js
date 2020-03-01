@@ -18,6 +18,7 @@ class ListMain extends React.Component {
     const { listId } = this.props.match.params
     const {items=[]} = this.context
     const itemsForList = getItemsForList(items, listId)
+    console.log(items)
     return (
       <section className='ItemListMain'>
         <ListMainNav/>

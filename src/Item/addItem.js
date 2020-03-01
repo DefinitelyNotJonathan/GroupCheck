@@ -1,35 +1,38 @@
 import React from 'react'
 import ApiContext from '../ApiContext'
 import config from '../config'
+import STORE from '../store'
 
 class AddItem extends React.Component {
     static contextType=ApiContext;
 
     render() {
-        const lists = 
-        [
-            {
-                "id": "aaaaaaaa",
-                "name": "test1",
-            },
-            {
-                "id": "bbbbbbb",
-                "name": "test2",
-            },
-            {
-                "id": "ccccccc",
-                "name": "test3",
-            },
-        ]
+        //I have to add this in as a prop instead
+        // const lists = 
+        // [
+        //     {
+        //         "id": "aaaaaaaa",
+        //         "name": "test1",
+        //     },
+        //     {
+        //         "id": "bbbbbbb",
+        //         "name": "test2",
+        //     },
+        //     {
+        //         "id": "ccccccc",
+        //         "name": "test3",
+        //     },
+        // ]
+        const lists = STORE.lists
         return (
             <div>
-                            <form onSubmit={((e)=> {
+                <form onSubmit={((e)=> {
                 e.preventDefault();
                 let data = {
                     id:null,
                     name: e.target.itemName.value,
                     priority: e.target.itemPriority.value,
-                    listId: e.target.itemName.value,
+                    listId: e.target.listId.value,
                     content: e.target.itemContent.value
                 }
                 if(data.name === '') {
@@ -42,26 +45,29 @@ class AddItem extends React.Component {
                     alert('please complete the required fields');
                     return false;
                 }
+                this.context.addItem(data)
+                this.props.history.goBack();
+//
+                // fetch(`${config.API_ENDPOINT}/items`, {
+                //     method: 'POST',
+                //     headers: {
+                //     'content-type': 'application/json'
+                //     },
+                //     body: JSON.stringify(data),
+                // })
+                //     .then(res => {
+                //     if (!res.ok)
+                //         return res.json().then(e => Promise.reject(e))
+                //     return res.json()
+                //     })
 
-                fetch(`${config.API_ENDPOINT}/items`, {
-                    method: 'POST',
-                    headers: {
-                    'content-type': 'application/json'
-                    },
-                    body: JSON.stringify(data),
-                })
-                    .then(res => {
-                    if (!res.ok)
-                        return res.json().then(e => Promise.reject(e))
-                    return res.json()
-                    })
-                    .then(item => {
-                    this.context.addItem(item)
-                    this.props.history.push('/home');
-                    })
-                    .catch(error => {
-                    console.error({ error })
-                    }) 
+
+
+
+                    // //
+                    // .catch(error => {
+                    // console.error({ error })
+                    // }) 
                 
             } )}>
                 
@@ -76,7 +82,7 @@ class AddItem extends React.Component {
                     <option value="2">2</option>
                     <option value="3">3</option>
                 </select>
-                <select name="List" >
+                <select name="listId" >
                     {lists.map((list)=> {
                         return (
                             <option key={list.id} value={list.id}>

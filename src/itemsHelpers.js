@@ -10,5 +10,12 @@ export const getItemsForList = (items=[], listId) => (
     : items.filter(item => item.listId === listId)
 )
 
+const getAllLists = (lists=[]) => {
+  return lists
+
+}
+
 export const countItemsForList = (items=[], listId) =>
   items.filter(item => item.listId === listId).length
+
+export default getAllLists()
