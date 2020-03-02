@@ -1,0 +1,9 @@
+{
+    "version":2,
+    "alias": "jonretchless-groupcheck-app",
+    "name": "groupcheck-app",
+    "routes": [
+        { "handle": "filesystem" },
+        { "src": "/.*", "dest": "/index.html" }
+    ]
+}
