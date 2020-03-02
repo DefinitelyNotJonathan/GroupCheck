@@ -1,28 +1,12 @@
 import React from 'react'
 import ApiContext from '../ApiContext'
-import config from '../config'
 import STORE from '../store'
 
 class AddItem extends React.Component {
     static contextType=ApiContext;
 
     render() {
-        //I have to add this in as a prop instead
-        // const lists = 
-        // [
-        //     {
-        //         "id": "aaaaaaaa",
-        //         "name": "test1",
-        //     },
-        //     {
-        //         "id": "bbbbbbb",
-        //         "name": "test2",
-        //     },
-        //     {
-        //         "id": "ccccccc",
-        //         "name": "test3",
-        //     },
-        // ]
+
         const lists = STORE.lists
         return (
             <div>

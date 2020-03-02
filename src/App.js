@@ -1,9 +1,7 @@
 import React, {Component} from 'react';
 import {Route, Link} from 'react-router-dom';
-import ListHomePage from './List/listHomePage';
 import ListMain from './List/listMain';
 import ApiContext from './ApiContext';
-import config from './config';
 import STORE from './store';
 import AddList from './List/addList';
 import AddItem from './Item/addItem';
@@ -19,7 +17,6 @@ class App extends Component {
     items: [],
     lists: []
   }
-  //I can load this up with a dummy store
     componentDidMount() {
 
       this.setState(STORE);

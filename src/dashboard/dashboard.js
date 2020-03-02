@@ -6,7 +6,7 @@ export default class Dashboard extends React.Component {
         return(
             <div>
                 <nav>
-                    <h2>Welcome User! Dashboard coming soon to an app near you!</h2>
+                    <h2>Welcome User!</h2>
                 </nav>
             </div>
         )

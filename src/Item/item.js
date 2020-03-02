@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import ApiContext from '../ApiContext'
-import config from '../config'
 import PropTypes from 'prop-types'
 
 
@@ -11,29 +10,29 @@ class Item extends React.Component {
   }
   static contextType = ApiContext;
 
-  handleClickDelete = e => {
-    e.preventDefault()
-    const itemId = this.props.id
+  // handleClickDelete = e => {
+  //   e.preventDefault()
+  //   const itemId = this.props.id
 
-    fetch(`${config.API_ENDPOINT}/item/${itemId}`, {
-      method: 'DELETE',
-      headers: {
-        'content-type': 'application/json'
-      },
-    })
-      .then(res => {
-        if (!res.ok)
-          return res.json().then(e => Promise.reject(e))
-        return res.json()
-      })
-      .then(() => {
-        this.context.deleteItem(itemId)
-        this.props.onDeleteItem(itemId)
-      })
-      .catch(error => {
-        console.error({ error })
-      })
-  }
+    // fetch(`${config.API_ENDPOINT}/item/${itemId}`, {
+    //   method: 'DELETE',
+    //   headers: {
+    //     'content-type': 'application/json'
+    //   },
+    // })
+    //   .then(res => {
+    //     if (!res.ok)
+    //       return res.json().then(e => Promise.reject(e))
+    //     return res.json()
+    //   })
+    //   .then(() => {
+        // this.context.deleteItem(itemId)
+        // this.props.onDeleteItem(itemId)
+      // })
+      // .catch(error => {
+      //   console.error({ error })
+      // })
+  // }
   render() {
     const { name, id, content, priority } = this.props
     return (
@@ -56,14 +55,14 @@ class Item extends React.Component {
                 {content}
             </div>
         </div>
-        <button
+        {/* <button
           className='Item__delete'
           type='button'
           onClick={this.handleClickDelete}
         >
           {' '}
           remove
-        </button>
+        </button> */}
       </div>
     )
   }
