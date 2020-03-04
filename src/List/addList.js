@@ -10,6 +10,7 @@ class AddList extends React.Component {
                 <form onSubmit={((e)=> {
                     e.preventDefault();
                     let data = {
+                    id: null,
                     name: e.target.listName.value,
                     }
                     console.log(data);

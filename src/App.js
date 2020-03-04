@@ -20,6 +20,7 @@ class App extends Component {
     componentDidMount() {
 
       this.setState(STORE);
+      console.log('App Ready');
     }
 
     renderMainRoutes() {
@@ -37,22 +38,59 @@ class App extends Component {
         );
     }
 
+    handleDeleteItem = (id) => {
+        console.log("handleDeleteItem", id);
+        // if(this.state.items){
+        //     console.log(this.state.items);
+        // }
+        this.setState({
+            items: this.state.items.filter(item => item.id !== id)
+        });
+
+    }
+
+    handleDeleteList = (id) => {
+        console.log('handleDeleteList', id);
+        console.log(this.state.lists);
+        // this.state.items.filter((item) => {
+        //     console.log(item.listId + '!==' + id, item.listId !== id);
+        //     return item.listId !== id;
+        // });
+        let newItems = this.state.items.filter((item) => item.listId !== id);
+        let newLists = this.state.lists.filter((list) => list.id !== id);
+        console.log(newItems);
+        console.log(newLists);
+        this.state.items = newItems;
+        this.state.lists = newLists;
+        this.setState({
+            items: this.state.items
+        });
+        this.setState({
+            lists: this.state.lists
+        });
+        console.log(this.state.items);
+        console.log(this.state.lists);
+    }
     render() {
         const value = {
             items: this.state.items,
             lists: this.state.lists,
             deleteItem: this.handleDeleteItem,
+            deleteList: this.handleDeleteList,
             addItem: (item) => {
+                console.log(item);
+                item.id = Math.floor(Math.random()*1E16).toString();
                 this.state.items.push(item);
                 this.setState(this.state);
             },
             addList: (list) => {
+              list.id = Math.floor(Math.random()*1E16).toString();
               this.state.lists.push(list);
               this.setState(this.state);
           }
         };
 
-        console.log(this.state.items)
+        // console.log(this.state.items)
         return (
             <ApiContext.Provider value={value}>
                 <div className="App">

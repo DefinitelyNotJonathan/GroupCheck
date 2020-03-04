@@ -1,18 +1,18 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 import ApiContext from '../ApiContext'
 import PropTypes from 'prop-types'
 
 
 class Item extends React.Component {
-  static defaultProps ={
-    onDeleteItem: () => {},
-  }
+
   static contextType = ApiContext;
 
-  // handleClickDelete = e => {
-  //   e.preventDefault()
-  //   const itemId = this.props.id
+  handleClickDelete = () => {
+  
+    const itemId = this.props.id
+    console.log('itemId', itemId)
+    this.context.deleteItem(itemId)
+
 
     // fetch(`${config.API_ENDPOINT}/item/${itemId}`, {
     //   method: 'DELETE',
@@ -27,20 +27,17 @@ class Item extends React.Component {
     //   })
     //   .then(() => {
         // this.context.deleteItem(itemId)
-        // this.props.onDeleteItem(itemId)
       // })
       // .catch(error => {
       //   console.error({ error })
       // })
-  // }
+  }
   render() {
     const { name, id, content, priority } = this.props
     return (
       <div className='Item'>
         <h2 className='Item__title'>
-          <Link to={`/item/${id}`}>
-            {name}
-          </Link>
+         {name}
         </h2>
         <div className='Item__priorities'>
           Priority:
@@ -55,20 +52,19 @@ class Item extends React.Component {
                 {content}
             </div>
         </div>
-        {/* <button
+        <button
           className='Item__delete'
           type='button'
           onClick={this.handleClickDelete}
         >
           {' '}
           remove
-        </button> */}
+        </button>
       </div>
     )
   }
 }
 Item.propTypes={
-  onDeleteItem: PropTypes.func,
   id: PropTypes.string.isRequired,
   name: PropTypes.string.isRequired
 };

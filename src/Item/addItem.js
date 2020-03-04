@@ -7,12 +7,13 @@ class AddItem extends React.Component {
 
     render() {
 
-        const lists = STORE.lists
+        const lists = this.context.lists;
         return (
             <div>
                 <form onSubmit={((e)=> {
                 e.preventDefault();
                 let data = {
+                    key: e.target.itemName.value,
                     id:null,
                     name: e.target.itemName.value,
                     priority: e.target.itemPriority.value,
