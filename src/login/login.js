@@ -9,6 +9,8 @@ export default class Login extends React.Component {
                  <h2>Login</h2>
                  <label htmlFor="email">Email</label>
                  <input type="text" id="email"></input>
+                 <label htmlFor="password">Password</label>
+                 <input type="text" id="password"></input>
                  <div>
                      <Link to="/home">Submit</Link>
                  </div>

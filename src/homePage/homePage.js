@@ -8,8 +8,7 @@ export default class HomePage extends React.Component {
         return (
             <div className="Homepage-Container">
                 <Dashboard></Dashboard>
-                <ListHomePage
-                ></ListHomePage>
+                <ListHomePage></ListHomePage>
             </div>
     
         )

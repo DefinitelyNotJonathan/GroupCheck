@@ -1,6 +1,5 @@
 import React from 'react'
 import ApiContext from '../ApiContext'
-import STORE from '../store'
 
 class AddItem extends React.Component {
     static contextType=ApiContext;

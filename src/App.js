@@ -96,13 +96,14 @@ class App extends Component {
                 <div className="App">
                         <header className="App__header">
                             <h1>
-                                <Link to="/home">GroupCheck</Link>{' '}
+                                GroupCheck
                             </h1>
                         </header>
                     <ErrorBoundary errorMessage='could not display MainRoutes'>
                         <main className="App__main">{this.renderMainRoutes()}
                         </main>
                     </ErrorBoundary>
+                    <LandingPage></LandingPage>
                     
                 </div>
             </ApiContext.Provider>

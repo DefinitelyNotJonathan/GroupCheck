@@ -7,6 +7,10 @@ export default class Dashboard extends React.Component {
             <div>
                 <nav>
                     <h2>Welcome User!</h2>
+                    <ul>
+                        <li><a href = "/settings">settings</a></li>
+                        <li><a href = "/">logout</a></li>
+                    </ul>
                 </nav>
             </div>
         )
