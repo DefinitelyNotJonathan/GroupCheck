@@ -103,7 +103,6 @@ class App extends Component {
                         <main className="App__main">{this.renderMainRoutes()}
                         </main>
                     </ErrorBoundary>
-                    <LandingPage></LandingPage>
                     
                 </div>
             </ApiContext.Provider>
