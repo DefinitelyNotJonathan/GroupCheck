@@ -26,7 +26,7 @@ class App extends Component {
     renderMainRoutes() {
         return (
             <>
-              <Route exact path="/" component={LandingPage} />
+              <Route exact path="/landingpage" component={LandingPage} />
               <Route path = "/login" component={Login} />
               <Route path = "/signup" component={SignUp} />
               <Route exact path = "/home" component={HomePage} />
@@ -95,21 +95,10 @@ class App extends Component {
             <ApiContext.Provider value={value}>
                 <div className="App">
                         <header className="App__header">
-                            <h1>
-                                GroupCheck
-                            </h1>
+                            <Link to= "/landingPage"> GroupCheck </Link>
                         </header>
                     <ErrorBoundary errorMessage='could not display MainRoutes'>
                         <main className="App__main">{this.renderMainRoutes()}
-                            <div>
-                                <h2>Brief Description Here</h2>
-                                <div>
-                                    <Link to="/login">Login</Link>
-                                </div>
-                                <div>
-                                    <Link to="/signup">Sign Up</Link>
-                                </div>
-                            </div>
                         </main>
                     </ErrorBoundary>
                     
