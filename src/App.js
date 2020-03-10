@@ -101,6 +101,15 @@ class App extends Component {
                         </header>
                     <ErrorBoundary errorMessage='could not display MainRoutes'>
                         <main className="App__main">{this.renderMainRoutes()}
+                            <div>
+                                <h2>Brief Description Here</h2>
+                                <div>
+                                    <Link to="/login">Login</Link>
+                                </div>
+                                <div>
+                                    <Link to="/signup">Sign Up</Link>
+                                </div>
+                            </div>
                         </main>
                     </ErrorBoundary>
                     
